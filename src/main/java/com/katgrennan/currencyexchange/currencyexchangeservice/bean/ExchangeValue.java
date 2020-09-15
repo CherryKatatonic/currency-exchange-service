@@ -1,9 +1,13 @@
 package com.katgrennan.currencyexchange.currencyexchangeservice.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 
+@Entity
 public class ExchangeValue {
 
+    @Id
     private Long id;
     private String from;
     private String to;
