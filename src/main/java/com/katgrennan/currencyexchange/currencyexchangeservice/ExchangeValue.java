@@ -1,4 +1,4 @@
-package com.katgrennan.currencyexchange.currencyexchangeservice.bean;
+package com.katgrennan.currencyexchange.currencyexchangeservice;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
