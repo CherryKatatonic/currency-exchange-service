@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 
+// Entity representing 1-to-1 currency exchange info
 @Entity
 public class ExchangeValue {
 
