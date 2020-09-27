@@ -1,5 +1,7 @@
 package com.katgrennan.currencyexchange.currencyexchangeservice;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +12,8 @@ import java.util.Objects;
 
 @RestController
 public class CurrencyExchangeController {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     // Get server.port from environment to tell other services
     // which instance of this service they're talking to
@@ -24,6 +28,7 @@ public class CurrencyExchangeController {
     public ExchangeValue getExchangeValue(@PathVariable String from, @PathVariable String to) {
         ExchangeValue exchangeValue = repo.findByFromAndTo(from, to);
         exchangeValue.setPort(Integer.parseInt(Objects.requireNonNull(env.getProperty("server.port"))));
+        logger.info("{}", exchangeValue);
         return exchangeValue;
     }
 
